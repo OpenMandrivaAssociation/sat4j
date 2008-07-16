@@ -7,7 +7,7 @@ Version:        2.0.0
 Release:        %mkrel 0.6.1
 Summary:        A library of SAT solvers written in Java
 
-Group:          Development/Libraries
+Group:          Development/Java
 License:        EPL and LGPLv2
 URL:            http://www.sat4j.org/
 Source0: http://forge.objectweb.org/tracker/download.php/228/350289/310427/1838/org.sat4j.core-src.zip
