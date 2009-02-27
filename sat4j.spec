@@ -15,12 +15,10 @@ Source0:        %{name}-%{version}.tar.bz2
 Source1:        %{name}-fetch.sh
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
-BuildRequires:  java-devel
+BuildRequires:  java-devel >= 1.6
 BuildRequires:  java-rpmbuild
 BuildRequires:  ant
-BuildRequires:  junit4
-BuildRequires:  eclipse-pde
-Requires:       java
+Requires:       java >= 1.6
 Requires:       jpackage-utils
 
 BuildArch:      noarch
