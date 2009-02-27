@@ -4,7 +4,7 @@
 
 Name:           sat4j
 Version:        2.0.3
-Release:        %mkrel 1
+Release:        %mkrel 2
 Summary:        A library of SAT solvers written in Java
 
 Group:          Development/Java
@@ -20,7 +20,7 @@ BuildRequires:  java-rpmbuild
 BuildRequires:  ant
 BuildRequires:  junit4
 BuildRequires:  eclipse-pde
-Requires:       java >= 1:1.6
+Requires:       java
 Requires:       jpackage-utils
 
 BuildArch:      noarch
