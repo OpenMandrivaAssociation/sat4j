@@ -4,7 +4,7 @@
 
 Name:           sat4j
 Version:        2.0.3
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        A library of SAT solvers written in Java
 
 Group:          Development/Java
