@@ -1,24 +1,25 @@
-%define eclipse_base %{_libdir}/eclipse
+%global eclipse_base %{_libdir}/eclipse
 # We want the version to match that shipped in Eclipse's Orbit project
-%define qualifier 20081021
+%global qualifier 20100429
 
 Name:           sat4j
-Version:        2.0.3
-Release:        %mkrel 5
+Version:        2.3.0
+Release:        2
 Summary:        A library of SAT solvers written in Java
 
 Group:          Development/Java
-License:        EPL and LGPLv2
+License:        EPL or LGPLv2
 URL:            http://www.sat4j.org/
 # Created by sh %{name}-fetch.sh
-Source0:        %{name}-%{version}.tar.bz2
+Source0:        %{name}-%{version}.tar.xz
 Source1:        %{name}-fetch.sh
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch0:         %{name}-classpath.patch
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  java-devel >= 1.6
-BuildRequires:  java-rpmbuild
+BuildRequires:  java-devel >= 0:1.6
 BuildRequires:  ant
-Requires:       java >= 1.6
+BuildRequires:  ecj
+Requires:       java >= 0:1.6
 Requires:       jpackage-utils
 
 BuildArch:      noarch
@@ -31,24 +32,27 @@ without worrying about the details.
 
 %prep
 %setup -q
+%patch0 -p0
 
 # Only used for the tests
 rm lib/commons-cli.jar
 
 %build
-ant -Drelease=%{version} -DBUILD_DATE=%{qualifier} p2
+ant -Dbuild.compiler=modern -Drelease=%{version} -DBUILD_DATE=%{qualifier} p2 
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
 cp -rp dist/%{version}/org.sat4j.core.jar \
-$RPM_BUILD_ROOT%{_javadir}
+ $RPM_BUILD_ROOT%{_javadir}
 cp -rp dist/%{version}/org.sat4j.pb.jar \
-$RPM_BUILD_ROOT%{_javadir}
+ $RPM_BUILD_ROOT%{_javadir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+# No %%doc files as the about.html is in the jar
 %{_javadir}/org.sat4j*
+
