@@ -41,15 +41,15 @@ rm lib/commons-cli.jar
 ant -Dbuild.compiler=modern -Drelease=%{version} -DBUILD_DATE=%{qualifier} p2 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d -m 755 $RPM_BUILD_ROOT%{_javadir}
+rm -rf %{buildroot}
+install -d -m 755 %{buildroot}%{_javadir}
 cp -rp dist/%{version}/org.sat4j.core.jar \
- $RPM_BUILD_ROOT%{_javadir}
+ %{buildroot}%{_javadir}
 cp -rp dist/%{version}/org.sat4j.pb.jar \
- $RPM_BUILD_ROOT%{_javadir}
+ %{buildroot}%{_javadir}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
