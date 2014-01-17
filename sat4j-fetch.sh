@@ -1,15 +1,16 @@
 #!/bin/sh
 name=sat4j
-tag=2_0_3
-version=2.0.3
+tag=org.ow2.sat4j.pom-2.3.5
+version=2.3.5
 tar_name=$name-$version
 
 rm -fr $tar_name && mkdir $tar_name
 pushd $tar_name
 
 # Fetch plugins
-svn co svn://svn.forge.objectweb.org/svnroot/sat4j/maven/tags/2_0_3 .
+svn co svn://svn.forge.objectweb.org/svnroot/sat4j/maven/tags/$tag .
+find . -name *.jar -delete
 
 popd
 # create archive
-tar -cjf $tar_name.tar.bz2 $tar_name
+tar -caf $tar_name.tar.xz $tar_name
