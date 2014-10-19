@@ -9,7 +9,7 @@
 
 Name:           %{?scl_prefix}sat4j
 Version:        2.3.5
-Release:        2.0%{?dist}
+Release:        2.1%{?dist}
 Summary:        A library of SAT solvers written in Java
 
 
