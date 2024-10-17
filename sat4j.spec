@@ -14,7 +14,7 @@ Summary:        A library of SAT solvers written in Java
 
 
 License:        EPL or LGPLv2
-URL:            http://www.sat4j.org/
+URL:            https://www.sat4j.org/
 # Created by sh %{pkg_name}-fetch.sh
 Source0:        %{pkg_name}-%{version}.tar.xz
 Source1:        %{pkg_name}-fetch.sh
