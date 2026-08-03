@@ -8,8 +8,8 @@
 %global build_date 20130405
 
 Name:           %{?scl_prefix}sat4j
-Version:        2.3.5
-Release:        2.1%{?dist}
+Version:        2.3.6
+Release:        1%{?dist}
 Summary:        A library of SAT solvers written in Java
 
 
@@ -38,7 +38,7 @@ without worrying about the details.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%patch0
+%patch -P0
 
 pushd lib
 	ln -s /usr/share/java/commons-beanutils.jar
